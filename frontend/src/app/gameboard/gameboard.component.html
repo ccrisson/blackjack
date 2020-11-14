@@ -1,0 +1,29 @@
+
+
+<div class="flow-container">
+  <div id="dealer-hand" class="container">
+    <img id="hiddencard" *ngFor="let card of gameboard.dealerHidden" class="card-image" src="../../assets/cards/Green_back.jpg" alt="{{card.rank}}{{card.suit}}">
+    <img *ngFor="let card of gameboard.dealerHand" class="card-image" src="../../assets/cards/{{card.rank}}{{card.suit}}.jpg" alt="{{card.rank}}{{card.suit}}">
+  </div>
+  <!-- <div class="container" *ngIf="gameboard.pot">Pot: {{gameboard.pot}}</div> -->
+  <div id="player-hand" class="container">
+    <img *ngFor="let card of gameboard.playerHand" class="card-image" src="../../assets/cards/{{card.rank}}{{card.suit}}.jpg" alt="{{card.rank}}{{card.suit}}">
+  </div>
+
+  <div>
+    <span *ngIf="gameboard.pot">Pot: {{gameboard.pot}}</span>
+    <span>Chips: {{gameboard.playerChips}}</span>
+    <span *ngIf="playing">Hand Score: {{playerScore}}</span>
+
+  </div>
+  <div id="action-bar" class="container">
+    <span *ngIf="gameboard.playerHand.length <= 0">
+      <input #betAmount type="number">
+      <button (click)="bet(betAmount.value)">Bet</button>
+    </span>
+    <span *ngIf="gameboard.playerHand.length > 0">
+      <button (click)="hit()">Hit</button>
+      <button (click)="stand()">Hold</button>
+    </span>
+  </div>
+</div>

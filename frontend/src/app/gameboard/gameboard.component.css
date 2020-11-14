@@ -1,0 +1,23 @@
+.card-image {
+  max-width: 6em;
+  height: auto;
+}
+.flow-container {
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  background: #444;
+}
+.container {
+  padding-top: 10px;
+  height: 30%;
+  background: #ccc;
+  /* display: flex;
+  flex-flow: row;
+  justify-content: space-around; */
+}
+
+.container img {
+  margin: 2px 5px;
+}
