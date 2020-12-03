@@ -21,9 +21,7 @@ export class CardService {
   }
 
   startGame(): void{
-    console.log('before http.get');
     this.http.get('http://localhost:3000/startgame').subscribe(req => {
-      // console.log(JSON.parse(JSON.stringify(req)));
       this.gameListener.next(JSON.parse(JSON.stringify(req)));
     });
     console.log('after http.get()');
@@ -36,6 +34,7 @@ export class CardService {
                 // console.log('whaaaaa');
                 this.gameListener.next(JSON.parse(JSON.stringify(req)));
               });
+            }
   // generateDeck(): Array<Card>{
   //   for (const rank of this.ranks){
   //     for (const suit of this.suits){
@@ -45,7 +44,7 @@ export class CardService {
   //   this.shuffleDeck(this.deck);
   //   console.log(this.deck);
   //   return this.deck;
-  }
+
 
   shuffleDeck(deck: Array<Card>): Array<Card>{
     for (let i = 0; i <= 10000; i++){

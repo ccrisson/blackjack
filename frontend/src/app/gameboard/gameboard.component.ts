@@ -48,6 +48,7 @@ export class GameboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Initialize default (empty) gameboard to avoid exceptions
     this.gameboard = {
       deck: [],
       dealerHand: [],
